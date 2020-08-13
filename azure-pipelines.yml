@@ -6,12 +6,21 @@
 trigger:
 - master
 
+resources:
+  repositories:
+  # our infrastructure repository
+  - repository: master
+    type: github
+    endpoint: dave-yotta
+    name: dave-yotta/yaml-master-repo@v1
+
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- template: hello-args.yaml
+  parameters:
+    name: build-san
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
