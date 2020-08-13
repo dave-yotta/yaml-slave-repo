@@ -9,7 +9,7 @@ trigger:
 resources:
   repositories:
   # our infrastructure repository
-  - repository: master
+  - repository: infrastructure
     type: github
     endpoint: dave-yotta
     name: dave-yotta/yaml-master-repo@v1
@@ -18,7 +18,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- template: hello-args.yaml
+- template: hello-args.yaml@infrastructure
   parameters:
     name: build-san
 
