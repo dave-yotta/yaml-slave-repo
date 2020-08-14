@@ -10,7 +10,7 @@ resources:
     type: github
     endpoint: dave-yotta
     name: dave-yotta/yaml-master-repo
-    ref: refs/tags/v1
+    ref: refs/tags/v2
 
 pool:
   vmImage: 'ubuntu-latest'
