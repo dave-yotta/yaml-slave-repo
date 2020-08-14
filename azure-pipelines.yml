@@ -24,6 +24,12 @@ steps:
     name: build-san
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    echo i shall be deployed! > build-file
+    echo "1.0.0" >> build-file
+  displayName: 'make a buildy file lol'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: build-file
+    artifact: build
+    publishLocation: pipeline
