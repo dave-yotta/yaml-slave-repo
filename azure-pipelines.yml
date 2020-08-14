@@ -17,7 +17,7 @@ pool:
 
 variables:
   apiAuth: "Authorization: Bearer $(System.AccessToken)"
-  apiUri: "$(System.CollectionUri)/$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)"
+  apiUri: "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)"
 steps:
 - template: hello-args.yaml@infrastructure
   parameters:
@@ -30,8 +30,8 @@ steps:
 
 - script: |
     echo curl -H $(apiAuth) -X PUT $(apiUri)/tags/Integrate
-    curl -H $(apiAuth) -X PUT $(apiUri)/tags/Integrate
-    curl -H $(apiAuth) -X GET $(apiUri)/tags
+    curl -H "$(apiAuth)" -X PUT $(apiUri)/tags/Integrate
+    curl -H "$(apiAuth)" -X GET $(apiUri)/tags
   displayName: Tag for integration
   condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'PullRequest')))
 
