@@ -33,7 +33,7 @@ steps:
     curl -H $(apiAuth) -X PUT $(apiUri)/tags/Integrate
     curl -H $(apiAuth) -X GET $(apiUri)/tags
   displayName: Tag for integration
-  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'PullRequest'))
+  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'PullRequest')))
 
 - task: PublishPipelineArtifact@1
   inputs:
