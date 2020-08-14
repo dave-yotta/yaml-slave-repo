@@ -16,7 +16,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  apiHeaders: "-H 'Authorization: Bearer $(System.AccessToken)' -H 'Content-Length: 0' -H 'Accept: application/json; api-version=1.0'"
+  apiHeaders: "-H 'Authorization: Bearer $(System.AccessToken)' -H 'Content-Length: 0' -H 'Accept: application/json; api-version=5.1'"
   apiUri: "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)"
 steps:
 - template: hello-args.yaml@infrastructure
