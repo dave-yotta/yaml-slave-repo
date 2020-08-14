@@ -16,7 +16,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  apiAuth: "Authorization: Bearer $(System.AccessToken)"
+  apiHeaders: "-H \"Authorization: Bearer $(System.AccessToken)\" -H \"Content-Length: 0\""
   apiUri: "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)"
 steps:
 - template: hello-args.yaml@infrastructure
@@ -29,9 +29,8 @@ steps:
   displayName: 'make a buildy file lol'
 
 - script: |
-    echo curl -H $(apiAuth) -X PUT $(apiUri)/tags/Integrate
-    curl -H "$(apiAuth)" -X PUT $(apiUri)/tags/Integrate
-    curl -H "$(apiAuth)" -X GET $(apiUri)/tags
+    curl "$(apiHeaders)" -X PUT $(apiUri)/tags/Integrate
+    curl "$(apiHeaders)" -X GET $(apiUri)/tags
   displayName: Tag for integration
   condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'PullRequest')))
 
