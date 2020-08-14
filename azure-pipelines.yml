@@ -26,6 +26,7 @@ steps:
     echo Build.BuildUri: $(Build.BuildUri)
     echo System.CollectionUri: $(System.CollectionUri)
     echo System.AccessToken: $(System.AccessToken)
+    env
   displayName: testy
 
 - task: PublishPipelineArtifact@1
