@@ -23,10 +23,7 @@ steps:
   displayName: 'make a buildy file lol'
 
 - script: |
-    echo Build.BuildUri: $(Build.BuildUri)
-    echo System.CollectionUri: $(System.CollectionUri)
-    echo System.AccessToken: $(System.AccessToken)
-    env
+    curl -H "Authorization: Bearer $(System.AccessToken)" -X GET $(System.CollectionUri)/$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)/tags
   displayName: testy
 
 - task: PublishPipelineArtifact@1
