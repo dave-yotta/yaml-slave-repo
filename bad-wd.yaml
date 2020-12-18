@@ -17,3 +17,4 @@ steps:
 - script: echo $(Pipeline.Workspace)
 - script: ls $(Pipeline.Workspace)
 - script: ls .
+- script: pwd
