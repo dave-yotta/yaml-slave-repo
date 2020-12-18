@@ -16,3 +16,4 @@ steps:
 - template: checkout-self-template.yaml@other
 - script: echo $(Pipeline.Workspace)
 - script: ls $(Pipeline.Workspace)
+- script: ls .
