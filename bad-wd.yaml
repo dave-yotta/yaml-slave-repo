@@ -1,0 +1,17 @@
+trigger:
+- main
+
+resources:
+  repositories:
+  - repository: other
+    type: github
+    endpoint: dave-yotta
+    name: dave-yotta/yaml-master-repo
+    ref: refs/heads/master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- template: checkout-self-template.yaml@other
+- script: echo $(Pipeline.Workspace)
