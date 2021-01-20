@@ -25,11 +25,10 @@ variables:
 
 steps:
 - script: |
-  echo sources directory:
-  ls -lha $(build.sourcesdirectory)
-  echo current dir (`pwd`)
-  ls -lha .
-
+    echo sources directory:
+    ls -lha $(build.sourcesdirectory)
+    echo current dir (`pwd`)
+    ls -lha .
 - checkout: infrastructure
 - template: hello-args.yaml@infrastructure
   parameters:
