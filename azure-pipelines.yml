@@ -23,6 +23,12 @@ pool:
 variables:
 - template: api-vars.yaml@infrastructure
 
+- script: |
+  echo sources directory:
+  ls -lha $(build.sourcesdirectory)
+  echo current dir (`pwd`)
+  ls -lha .
+
 steps:
 - checkout: infrastructure
 - template: hello-args.yaml@infrastructure
