@@ -29,7 +29,11 @@ steps:
   parameters:
     name: build-san
 
-- script: ls -lha $(build.sourcesdirectory)
+- script: |
+  echo sources directory:
+  ls -lha $(build.sourcesdirectory)
+  echo current dir (`pwd`)
+  ls -lha .
 
 - template: yamls/call-script.yml@infrastructure
 
