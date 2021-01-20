@@ -1,3 +1,8 @@
+parameters:
+- name: example
+  type: string
+  default: 'true'
+
 trigger:
 - master
 
@@ -25,11 +30,11 @@ steps:
     
 #- template: yamls/call-script.yml@infrastructure
 
-- $[[ if eq(variables['example'], 'true') ]]:
+- ${{ if eq(variables['example'], 'true') }}:
   - script: echo "example was true"
     displayName: example was true
 
-- $[[ if eq(variables['example'], 'false') ]]:
+- ${{ if eq(variables['example'], 'false') }}:
   - script: echo "example was false"
     displayName: example was false
 
