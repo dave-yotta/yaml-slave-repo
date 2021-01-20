@@ -29,6 +29,8 @@ steps:
   parameters:
     name: build-san
 
+- script: ls -lha $(build.sourcesdirectory)
+
 - template: yamls/call-script.yml@infrastructure
 
 - script: |
