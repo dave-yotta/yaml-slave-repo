@@ -24,6 +24,7 @@ variables:
 - template: api-vars.yaml@infrastructure
 
 steps:
+- checkout: self
 - script: |
     echo sources directory:
     ls -lha $(build.sourcesdirectory)
