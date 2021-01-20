@@ -24,6 +24,7 @@ variables:
 - template: api-vars.yaml@infrastructure
 
 steps:
+- checkout: infrastructure
 - template: hello-args.yaml@infrastructure
   parameters:
     name: build-san
