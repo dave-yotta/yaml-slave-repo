@@ -25,6 +25,14 @@ steps:
     
 - template: yamls/call-script.yml@infrastructure
 
+- ${{ if eq(variables['example'], 'true') }}:
+  - script: echo "example was true"
+    displayName: example was true
+
+- ${{ if eq(variables['example'], 'false') }}:
+  - script: echo "example was false"
+    displayName: example was false
+
 - script: |
     echo i shall be deployed! > build-file
     echo "1.0.0" >> build-file
