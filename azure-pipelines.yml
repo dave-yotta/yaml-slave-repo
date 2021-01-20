@@ -28,7 +28,7 @@ steps:
 - template: hello-args.yaml@infrastructure
   parameters:
     name: build-san
-    
+
 - template: yamls/call-script.yml@infrastructure
 
 - script: |
