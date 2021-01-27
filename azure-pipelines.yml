@@ -24,6 +24,8 @@ variables:
 - template: api-vars.yaml@infrastructure
 
 steps:
+- task: NuGetAuthenticate@0
+- script: echo VSS_NUGET_EXTERNAL_FEED_ENDPOINTS is $VSS_NUGET_EXTERNAL_FEED_ENDPOINTS 
 - checkout: self
 - script: |
     echo sources directory:
